@@ -1,0 +1,23 @@
+Private Sub Workbook_Open()
+    x = InputBox("Enter font to be changed", "Title")
+    y = InputBox("Enter desired font", "Title")
+    n = InputBox("Enter font size to be changed", "Title")
+    m = InputBox("Enter desired font size", "Title")
+
+    Dim objSingleWord As Range
+    Dim objDoc As Document
+    
+    Set objDoc = ActiveDocument
+    
+        With objDoc
+            For Each objSingleWord In .Words
+                If objSingleWord.Font.Name = x Then
+                    objSingleWord.Font.Name = y
+                End If
+                
+                If objSingleWord.Font.Size = n Then
+                    objSingleWord.Font.Size = m
+                End If
+            Next
+        End With
+End Sub
